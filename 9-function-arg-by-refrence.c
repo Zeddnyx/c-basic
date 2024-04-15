@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 int foo(int bar) { return bar++; }
+// func with pointer
 int fooPointer(int *bar) { return (*bar)++; }
 
 // Pointers to structures
@@ -26,11 +27,11 @@ int main() {
   printf("After : %d\n", n);
 
   // Pointers to structures
-  person john;
-  john.name = "John";
-  john.age = 27;
-  birthday(&john);
-  printf("%s is %d years old\n", john.name, john.age);
+  person me;
+  me.name = "John";
+  me.age = 27;
+  birthday(&me);
+  printf("%s is %d years old\n", me.name, me.age);
 
   return 0;
 }

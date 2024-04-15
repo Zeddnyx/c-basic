@@ -33,6 +33,7 @@ int main() {
     char *brand;
     int model;
   } vehicle;
+
   vehicle myCar = {"Toyota", 2020};
   vehicle myCar2;
   myCar2.brand = "Toyota";
