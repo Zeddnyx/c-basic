@@ -24,17 +24,18 @@
 #include <stdio.h>
 
 int main() {
-  int a = 1;
-  int *pointer_to_a = &a; // use & to get the address of the variable
+  int someNumb = 1;
+  int *pSomeNumb = &someNumb; // use & to get the address of the variable
 
   /* let's change the variable a */
-  a += 1;
 
-  /* we just changed the variable again! */
-  *pointer_to_a += 1;
+  /* we just changed the variable again! without using a var a */
+  *pSomeNumb += 2;
 
   /* will print out 3 */
-  printf("The value of a is now %d\n", a);
+  printf("The value of someNumb %d\n", someNumb);
+  printf("value of pointer that refrence someNumb %d\n", *pSomeNumb);
+  printf("value of pointer pSomeNumb %p\n", pSomeNumb);
 
   return 0;
 }

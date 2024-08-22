@@ -1,9 +1,5 @@
 #include <stdio.h>
 
-int foo(int bar) { return bar++; }
-// func with pointer
-int fooPointer(int *bar) { return (*bar)++; }
-
 // Pointers to structures
 typedef struct {
   char *name;
@@ -11,26 +7,27 @@ typedef struct {
 } person;
 
 void birthday(person *p) {
-  p->age++; // This is the same..
-  //(*p).age++; // ... as this would be
+  p->age++; // This modifies the original person object
+  //(*p).age++; // another way to do it
+}
+
+void birthday2(person p) {
+  p.age++; // this modifies a copy of the person obj
+  printf("from birthday2\n");
+  printf("%s2 is %d years old\n\n", p.name, p.age);
+
 }
 
 int main() {
-
-  int n;
-  // printf("Before: %d\n", n);
-  // foo(n);
-  // printf("After: %d\n", n); // still 0
-
-  printf("Before : %d\n", n);
-  fooPointer(&n);
-  printf("After : %d\n", n);
 
   // Pointers to structures
   person me;
   me.name = "John";
   me.age = 27;
-  birthday(&me);
+
+  birthday2(me); // it did not change to original value of me
+  printf("%s2 is %d years old\n", me.name, me.age);
+  birthday(&me); // it will change to original value of me
   printf("%s is %d years old\n", me.name, me.age);
 
   return 0;
